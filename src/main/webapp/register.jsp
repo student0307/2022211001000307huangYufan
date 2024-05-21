@@ -5,6 +5,7 @@
   Time: 19:35
   To change this template use File | Settings | File Templates.
 --%>
+<%@include file="header.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -48,16 +49,17 @@
     </script>
 </head>
 <body>
-
-<form id="myForm">
-    Username: <input type="text" id="username" required><br>
-    Password: <input type="password" id="password" required minlength="8"><br>
-    Email: <input type="email" id="email" required><br>
-    Gender:<input type="radio" name="sex" />Male <input type="radio" name="sex" />Female<br/>
-    Birthdate (yyyy-mm-dd): <input type="text" id="birthdate" required><br>
+This is Register-getParameter-week3 <br>
+<form id="myForm" method="post" >
+    Username: <input type="text" id="username" name="username" required><br>
+    Password: <input type="password" id="password" name="password" required minlength="8"><br>
+    Email: <input type="email" id="email" name="email" required><br>
+    Gender:<input type="radio" name="gender" value="male">Male <input type="radio" name="gender" value="female">Female<br/>
+    Birthdate (yyyy-mm-dd): <input type="text" id="birthdate" name="birthday" required><br>
     <button type="submit">Submit</button>
 </form>
     <div id="errorMessages"></div>
 
 </body>
 </html>
+<%@include file="footer.jsp"%>

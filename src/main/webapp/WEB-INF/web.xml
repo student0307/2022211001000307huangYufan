@@ -7,9 +7,87 @@
         <servlet-name>anyName</servlet-name>
         <servlet-class>com.HuangYufan.week2.demo.HelloWorldServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <servlet-class>com.HuangYufan.week3.demo.LifeCycleServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <servlet-class>com.HuangYufan.week4.demo.ConfigDemoServlet</servlet-class>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>HuangYufan</param-value>
+        </init-param>
+        <init-param>
+            <param-name>studentID</param-name>
+            <param-value>2022211001000307</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+
     <servlet-mapping>
         <servlet-name>anyName</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <url-pattern>/life</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping>
+    <context-param>
+        <param-name>driver</param-name>
+        <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:sqlserver://127.0.0.1:1433;DatabaseName=userdb;encrypt=true;trustServerCertificate=true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>123456</param-value>
+    </context-param>
+
+    <welcome-file-list>
+        <welcome-file>home</welcome-file><!-- HomeServlet-->
+
+    </welcome-file-list>
+
+
+    <filter>
+        <filter-name>firstFilter</filter-name>
+        <filter-class>com.HuangYufan.filter.HelloFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>firstFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>secondFilter</filter-name>
+        <filter-class>com.HuangYufan.filter.LoggerFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>secondFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>thirdFilter</filter-name>
+        <filter-class>com.HuangYufan.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>thirdFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
 </web-app>
